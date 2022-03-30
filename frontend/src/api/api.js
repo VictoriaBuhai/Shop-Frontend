@@ -5,5 +5,5 @@ export const getProducts = () => {
 };
 
 export const getProductById = (id) => {
-  return fetch(`${URL}/products/${id}`);
+  return fetch(`${URL}/products/${id}`).then((response) => response.json());
 };

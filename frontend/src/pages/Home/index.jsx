@@ -1,14 +1,17 @@
-import { Button } from "@mui/material";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import "./styles.css";
 import { useEffect, useState } from "react";
 import { getProducts } from "../../api/api";
 import { ProductsList } from "../../components/ProductsList";
+import { Button } from "@mui/material";
 //import { ProductsList } from "./components/ProductsList";
 
 export const Home = ({ addButton }) => {
   const [products, setProducts] = useState([]);
+  const [counter, setCounter] = useState(3);
+
+  const show = () => {
+    setCounter((prev) => prev + 3);
+  };
 
   useEffect(() => {
     (async () => {
@@ -19,17 +22,12 @@ export const Home = ({ addButton }) => {
 
   return (
     <>
-      <header>
-        <div className="display">
-          <Button>
-            <HomeRoundedIcon />
-          </Button>
-          <h1>Products</h1>
-          <ShoppingCartRoundedIcon />
-        </div>
-      </header>
       <div className="container">
-        <ProductsList products={products} addButton={addButton} />
+        <ProductsList
+          products={products.slice(0, counter)}
+          addButton={addButton}
+        />
+        <Button onClick={() => show()}>Show more</Button>
       </div>
     </>
   );

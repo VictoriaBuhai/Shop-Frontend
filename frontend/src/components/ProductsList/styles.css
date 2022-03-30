@@ -1,0 +1,11 @@
+.list {
+  max-width: 1400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.link {
+  text-decoration: none;
+}

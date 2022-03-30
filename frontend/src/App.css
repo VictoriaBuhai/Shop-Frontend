@@ -1,0 +1,26 @@
+header {
+  position: fixed;
+  width: 100%;
+  background-color: lightsalmon;
+  padding: 20px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.display {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  max-width: 1280px;
+}
+.display svg {
+  color: white;
+  font-size: 40px;
+}
+
+.layout {
+  max-width: 1280px;
+  margin: 120px auto 0;
+}

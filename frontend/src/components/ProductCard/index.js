@@ -4,32 +4,35 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActions, Box } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function ProductCard({ product, addButton }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 500 }}>
       <Box>
-        <CardMedia
-          component="img"
-          height="140"
-          image={product.imagePath}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {product.name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {product.price}
-          </Typography>
-        </CardContent>
+        <Link
+          to={`/products/${product.slug}/${product._id}`}
+          key={product._id}
+          className="link"
+        >
+          <CardMedia
+            component="img"
+            height="200"
+            image={product.imagePath}
+            alt="img"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {product.name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {product.price}$
+            </Typography>
+          </CardContent>
+        </Link>
       </Box>
       <CardActions>
-        <Button
-          size="small"
-          color="primary"
-          onClick={() => addButton(product._id)}
-        >
+        <Button size="small" color="primary" onClick={() => addButton(product)}>
           Add to order
         </Button>
       </CardActions>
