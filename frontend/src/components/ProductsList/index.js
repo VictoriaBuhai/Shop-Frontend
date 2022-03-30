@@ -1,18 +1,21 @@
+import { Grid } from "@mui/material";
 import ProductCard from "../ProductCard";
 import "./styles.css";
 
 export const ProductsList = ({ products, addButton }) => {
   return (
-    <div className="list">
+    <Grid container className="list">
       {products.map((product) => {
         return (
-          <ProductCard
-            key={product._id}
-            product={product}
-            addButton={addButton}
-          />
+          <Grid item xs={11} sm={5} md={3}>
+            <ProductCard
+              key={product._id}
+              product={product}
+              addButton={addButton}
+            />
+          </Grid>
         );
       })}
-    </div>
+    </Grid>
   );
 };

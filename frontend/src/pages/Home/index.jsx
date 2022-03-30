@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../../api/api";
 import { ProductsList } from "../../components/ProductsList";
 import { Button } from "@mui/material";
-//import { ProductsList } from "./components/ProductsList";
 
 export const Home = ({ addButton }) => {
   const [products, setProducts] = useState([]);
@@ -27,7 +26,9 @@ export const Home = ({ addButton }) => {
           products={products.slice(0, counter)}
           addButton={addButton}
         />
-        <Button onClick={() => show()}>Show more</Button>
+        <Button onClick={() => show()} disabled={counter >= products.length}>
+          Show more
+        </Button>
       </div>
     </>
   );
