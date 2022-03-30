@@ -1,0 +1,18 @@
+header {
+  position: fixed;
+  width: 100%;
+  background-color: lightsalmon;
+  padding: 20px;
+}
+.container {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  max-width: 1280px;
+}
+.container svg {
+  color: white;
+  font-size: 40px;
+}
