@@ -4,7 +4,7 @@ import { getProducts } from "../../api/api";
 import { ProductsList } from "../../components/ProductsList";
 import { Button } from "@mui/material";
 
-export const Home = ({ addButton }) => {
+export const Home = () => {
   const [products, setProducts] = useState([]);
   const [counter, setCounter] = useState(3);
 
@@ -22,10 +22,7 @@ export const Home = ({ addButton }) => {
   return (
     <>
       <div className="container">
-        <ProductsList
-          products={products.slice(0, counter)}
-          addButton={addButton}
-        />
+        <ProductsList products={products.slice(0, counter)} />
         <Button onClick={() => show()} disabled={counter >= products.length}>
           Show more
         </Button>

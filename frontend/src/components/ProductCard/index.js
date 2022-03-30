@@ -5,8 +5,11 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActions, Box } from "@mui/material";
 import { Link } from "react-router-dom";
+import "./styles.css";
+import { OrderFunction } from "../../App";
 
-export default function ProductCard({ product, addButton }) {
+export default function ProductCard({ product }) {
+  const { addButton } = React.useContext(OrderFunction);
   return (
     <Card sx={{ maxWidth: 500 }}>
       <Box>
