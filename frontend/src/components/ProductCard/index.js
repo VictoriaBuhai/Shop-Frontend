@@ -3,12 +3,12 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import { Button, CardActions, Box } from "@mui/material";
 
 export default function ProductCard({ product, addButton }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+      <Box>
         <CardMedia
           component="img"
           height="140"
@@ -23,9 +23,13 @@ export default function ProductCard({ product, addButton }) {
             {product.price}
           </Typography>
         </CardContent>
-      </CardActionArea>
+      </Box>
       <CardActions>
-        <Button size="small" color="primary" onClick={addButton(product._id)}>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => addButton(product._id)}
+        >
           Add to order
         </Button>
       </CardActions>

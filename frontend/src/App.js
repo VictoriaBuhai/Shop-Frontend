@@ -1,6 +1,7 @@
 import "./App.css";
 import { Home } from "./pages/Home";
 const App = () => {
-  return <Home />;
+  const addButton = (product) => {};
+  return <Home addButton={addButton} />;
 };
 export default App;
