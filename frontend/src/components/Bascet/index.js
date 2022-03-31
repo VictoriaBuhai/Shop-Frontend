@@ -24,6 +24,7 @@ export const Bascet = () => {
           </ListItem>
         );
       })}
+      {items.length === 0 && <p>The basket is empty...</p>}
       <Button onClick={() => deleteItems()} disabled={items.length === 0}>
         Buy
       </Button>
