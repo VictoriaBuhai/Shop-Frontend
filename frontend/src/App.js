@@ -27,7 +27,10 @@ const App = () => {
   const deleteItems = () => {
     setItems([]);
     setAlert((prev) => !prev);
-    setTimeout(alert, 4000);
+    onToggle();
+    setTimeout(() => {
+      setAlert((prev) => !prev);
+    }, 3000);
   };
 
   return (
