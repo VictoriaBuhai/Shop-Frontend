@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { Button, Dialog } from "@mui/material";
+import { Alert, Button, Dialog } from "@mui/material";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import { Link, Route, Routes } from "react-router-dom";
@@ -12,24 +12,22 @@ export const OrderFunction = createContext();
 
 const App = () => {
   const [items, setItems] = useState([]);
-  //const [orders, setOrders] = useState([]);
 
   const [dialog, setDialog] = useState(false);
 
-  let state = [
-    { name: "hfjjd", price: 134, image: "qwertyu" },
-    { name: "hfjjd", price: 134, image: "qwertyu" },
-    { name: "hfjjd", price: 134, image: "qwertyu" },
-    { name: "hfjjd", price: 134, image: "qwertyu" },
-    { name: "hfjjd", price: 134, image: "qwertyu" },
-  ];
-
+  const [alert, setAlert] = useState(false);
   const onToggle = () => {
     setDialog((prev) => !prev);
   };
 
   const addButton = (product) => {
     setItems((prev) => [product, ...prev]);
+  };
+
+  const deleteItems = () => {
+    setItems([]);
+    setAlert((prev) => !prev);
+    setTimeout(alert, 4000);
   };
 
   return (
@@ -47,16 +45,22 @@ const App = () => {
       </header>
 
       <div className="layout">
-        <OrderFunction.Provider value={{ state, addButton }}>
+        <OrderFunction.Provider value={{ items, addButton, deleteItems }}>
           <Routes>
             <Route path="/products" element={<Home items={items} />} />
             <Route path="/products/:slug/:id" element={<ProductPage />} />
           </Routes>
+
+          <Dialog open={dialog} onClose={onToggle}>
+            <Bascet />
+          </Dialog>
         </OrderFunction.Provider>
+        {alert && (
+          <Alert severity="success" className="alert">
+            Purchase made successfully
+          </Alert>
+        )}
       </div>
-      <Dialog open={dialog} onClose={onToggle}>
-        <Bascet />
-      </Dialog>
     </>
   );
 };

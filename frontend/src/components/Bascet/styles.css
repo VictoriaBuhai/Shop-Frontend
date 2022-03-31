@@ -1,0 +1,8 @@
+.orders {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  gap: 15px;
+  background-color: azure;
+  align-items: center;
+}
