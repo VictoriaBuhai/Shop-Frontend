@@ -53,7 +53,7 @@ const App = () => {
             <Route path="/products" element={<Home items={items} />} />
             <Route path="/products/:slug/:id" element={<ProductPage />} />
 
-            <Route path="/" element={<Navigate to="/products" replace />} />
+            <Route path="*" element={<Navigate to="/products" replace />} />
           </Routes>
 
           <Dialog open={dialog} onClose={onToggle}>
