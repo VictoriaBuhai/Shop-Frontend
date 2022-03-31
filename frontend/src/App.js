@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 import { Alert, Button, Dialog } from "@mui/material";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Home } from "./pages/Home";
 import { ProductPage } from "./pages/ProductPage";
@@ -52,6 +52,8 @@ const App = () => {
           <Routes>
             <Route path="/products" element={<Home items={items} />} />
             <Route path="/products/:slug/:id" element={<ProductPage />} />
+
+            <Route path="/" element={<Navigate to="/products" replace />} />
           </Routes>
 
           <Dialog open={dialog} onClose={onToggle}>
