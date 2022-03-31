@@ -15,10 +15,9 @@ export const ProductPage = () => {
   useEffect(() => {
     (async () => {
       const apiProduct = await getProductById(params.id);
-      console.log(apiProduct);
       setProduct(apiProduct);
     })();
-  });
+  }, []);
 
   return (
     <>
