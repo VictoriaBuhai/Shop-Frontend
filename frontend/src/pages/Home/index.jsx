@@ -1,16 +1,35 @@
 import "./styles.css";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import { getProducts } from "../../api/api";
 import { ProductsList } from "../../components/ProductsList";
-import { Button } from "@mui/material";
+//import { Button } from "@mui/material";
 
 export const Home = () => {
   const [products, setProducts] = useState([]);
   const [counter, setCounter] = useState(3);
+  const ref = useRef(null);
 
-  const show = () => {
-    setCounter((prev) => prev + 3);
-  };
+  const handleObserver = useCallback((entries) => {
+    const target = entries[0];
+    console.log(target);
+    if (target.isIntersecting) {
+      setCounter((prev) => prev + 3);
+    }
+  }, []);
+
+  useEffect(() => {
+    const option = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0,
+    };
+    const observer = new IntersectionObserver(handleObserver, option);
+    if (ref.current) observer.observe(ref.current);
+  }, [handleObserver]);
+
+  //   const show = () => {
+  //     setCounter((prev) => prev + 3);
+  //   };
 
   useEffect(() => {
     (async () => {
@@ -23,9 +42,10 @@ export const Home = () => {
     <>
       <div className="container">
         <ProductsList products={products.slice(0, counter)} />
-        <Button onClick={() => show()} disabled={counter >= products.length}>
+        <div ref={ref} />
+        {/* <Button onClick={() => show()} disabled={counter >= products.length}>
           Show more
-        </Button>
+        </Button> */}
       </div>
     </>
   );
