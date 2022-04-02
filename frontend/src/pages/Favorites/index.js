@@ -12,5 +12,10 @@ export const Favorites = ({ products }) => {
     })();
   }, []);
 
-  return <ProductsList products={favorites} />;
+  return (
+    <>
+      <h1 className="title">Favorites</h1>
+      <ProductsList products={favorites} />;
+    </>
+  );
 };
