@@ -41,7 +41,10 @@ export const Home = () => {
   return (
     <>
       <div className="container">
-        <ProductsList products={products.slice(0, counter)} />
+        <ProductsList
+          products={products.slice(0, counter)}
+          setProducts={setProducts}
+        />
         <div ref={ref} />
         {/* <Button onClick={() => show()} disabled={counter >= products.length}>
           Show more

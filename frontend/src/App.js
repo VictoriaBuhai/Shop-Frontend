@@ -1,13 +1,16 @@
 import { createContext, useState } from "react";
 import { Alert, Button } from "@mui/material";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 import { Link, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Home } from "./pages/Home";
 import { ProductPage } from "./pages/ProductPage";
-import { BascetDialog } from "./components/BascetDialog";
+
 import { Bascet } from "./components/Bascet";
+
+import { Favorites } from "./pages/Favorites";
 
 export const OrderFunction = createContext();
 
@@ -32,11 +35,19 @@ const App = () => {
     <OrderFunction.Provider value={{ items, addButton, deleteItems }}>
       <header>
         <div className="display">
-          <Button>
-            <Link to="/products">
-              <HomeRoundedIcon />
-            </Link>
-          </Button>
+          <div className="navigate">
+            <Button>
+              <Link to="/products">
+                <HomeRoundedIcon />
+              </Link>
+            </Button>
+
+            <Button>
+              <Link to="/products/favorites">
+                <FavoriteIcon />
+              </Link>
+            </Button>
+          </div>
 
           <h1>Whatever</h1>
 
@@ -48,7 +59,7 @@ const App = () => {
         <Routes>
           <Route path="/products" element={<Home items={items} />} />
           <Route path="/products/:slug/:id" element={<ProductPage />} />
-
+          <Route path="/products/favorites" element={<Favorites />} />
           <Route path="*" element={<Navigate to="/products" replace />} />
         </Routes>
 
