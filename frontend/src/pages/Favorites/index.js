@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getFavorites } from "../../api/api";
 import { ProductsList } from "../../components/ProductsList";
+import PropTypes from "prop-types";
 
 export const Favorites = ({ products }) => {
   const [favorites, setFavorites] = useState([]);
@@ -18,4 +19,8 @@ export const Favorites = ({ products }) => {
       <ProductsList products={favorites} />
     </>
   );
+};
+
+Favorites.propTypes = {
+  products: PropTypes.array,
 };

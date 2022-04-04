@@ -10,6 +10,7 @@ import { OrderFunction } from "../../App";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { editProduct } from "../../api/api";
+import PropTypes from "prop-types";
 
 export default function ProductCard({ product, setProducts }) {
   const { addButton } = React.useContext(OrderFunction);
@@ -75,3 +76,8 @@ export default function ProductCard({ product, setProducts }) {
     </Card>
   );
 }
+
+ProductCard.propTypes = {
+  product: PropTypes.object,
+  setProducts: PropTypes.func,
+};

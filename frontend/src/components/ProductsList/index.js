@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import ProductCard from "../ProductCard";
 import "./styles.css";
+import PropTypes from "prop-types";
 
 export const ProductsList = ({ products, setProducts }) => {
   return (
@@ -18,4 +19,9 @@ export const ProductsList = ({ products, setProducts }) => {
       })}
     </Grid>
   );
+};
+
+ProductsList.propTypes = {
+  products: PropTypes.array,
+  setProducts: PropTypes.func,
 };

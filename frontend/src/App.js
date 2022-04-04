@@ -3,7 +3,7 @@ import { Alert, Button } from "@mui/material";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-import { Link, Navigate, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Home } from "./pages/Home";
 import { ProductPage } from "./pages/ProductPage";
@@ -60,7 +60,8 @@ const App = () => {
           <Route path="/products" element={<Home items={items} />} />
           <Route path="/products/:slug/:id" element={<ProductPage />} />
           <Route path="/products/favorites" element={<Favorites />} />
-          <Route path="*" element={<Navigate to="/products" replace />} />
+
+          {/* <Route path="*" element={<Navigate to="/products" replace />} /> */}
         </Routes>
 
         {alert && (
