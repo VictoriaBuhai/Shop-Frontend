@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 import { Alert, Button } from "@mui/material";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -19,9 +19,9 @@ const App = () => {
 
   const [alert, setAlert] = useState(false);
 
-  const addButton = (product) => {
+  const addButton = useCallback((product) => {
     setItems((prev) => [product, ...prev]);
-  };
+  }, []);
 
   const deleteItems = () => {
     setItems([]);

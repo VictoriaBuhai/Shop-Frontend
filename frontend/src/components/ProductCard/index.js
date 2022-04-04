@@ -5,16 +5,17 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActions, Box } from "@mui/material";
 import { Link } from "react-router-dom";
-import "./styles.css";
+
 import { OrderFunction } from "../../App";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { editProduct } from "../../api/api";
 import PropTypes from "prop-types";
+import { ProductCardStyles } from "./styles";
 
-export default function ProductCard({ product, setProducts }) {
+export const ProductCard = React.memo(({ product, setProducts }) => {
   const { addButton } = React.useContext(OrderFunction);
-
+  const styles = ProductCardStyles();
   const click = async (product) => {
     const newProduct = await editProduct(product._id, {
       isFavorite: !product.isFavorite,
@@ -32,14 +33,14 @@ export default function ProductCard({ product, setProducts }) {
 
   return (
     <Card sx={{ maxWidth: 500 }} className="product-card">
-      <Box className="box">
+      <Box className={styles.box}>
         <CardMedia
           component="img"
           height="200"
           image={product.imagePath}
           alt="img"
         />
-        <CardContent className="content">
+        <CardContent className={styles.content}>
           <div>
             <Typography gutterBottom variant="h5" component="div">
               {product.name}
@@ -49,10 +50,13 @@ export default function ProductCard({ product, setProducts }) {
             </Typography>
           </div>
           {product.isFavorite ? (
-            <FavoriteIcon className="heart" onClick={() => click(product)} />
+            <FavoriteIcon
+              className={styles.heart}
+              onClick={() => click(product)}
+            />
           ) : (
             <FavoriteBorderIcon
-              className="heart"
+              className={styles.heart}
               onClick={() => click(product)}
             />
           )}
@@ -62,7 +66,7 @@ export default function ProductCard({ product, setProducts }) {
         <Button
           size="small"
           color="primary"
-          className="add-button"
+          className={styles.addButton}
           onClick={() => addButton(product)}
         >
           Add to order
@@ -71,11 +75,11 @@ export default function ProductCard({ product, setProducts }) {
       <Link
         to={`/products/${product.slug}/${product._id}`}
         key={product._id}
-        className="link"
+        className={styles.link}
       />
     </Card>
   );
-}
+});
 
 export const productType = PropTypes.shape({
   name: PropTypes.string,

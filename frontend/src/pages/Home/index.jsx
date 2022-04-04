@@ -1,17 +1,18 @@
-import "./styles.css";
 import { useCallback, useEffect, useState, useRef } from "react";
 import { getProducts } from "../../api/api";
 import { ProductsList } from "../../components/ProductsList";
+import { HomeStyles } from "./styles";
 //import { Button } from "@mui/material";
 
 export const Home = () => {
   const [products, setProducts] = useState([]);
   const [counter, setCounter] = useState(3);
   const ref = useRef(null);
+  const styles = HomeStyles();
 
   const handleObserver = useCallback((entries) => {
     const target = entries[0];
-    console.log(target);
+    //console.log(target);
     if (target.isIntersecting) {
       setCounter((prev) => prev + 3);
     }
@@ -40,8 +41,8 @@ export const Home = () => {
 
   return (
     <>
-      <div className="container">
-        <h1 className="title">Home</h1>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Home</h1>
         <ProductsList
           products={products.slice(0, counter)}
           setProducts={setProducts}

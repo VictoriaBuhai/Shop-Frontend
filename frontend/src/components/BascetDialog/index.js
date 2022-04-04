@@ -8,12 +8,13 @@ import {
 } from "@mui/material";
 import { useContext } from "react";
 import { OrderFunction } from "../../App";
-import "./styles.css";
+
 import PropTypes from "prop-types";
+import { BasketDialogStyles } from "./styles";
 
 export const BascetDialog = ({ open, onClose }) => {
   const { items, deleteItems } = useContext(OrderFunction);
-
+  const styles = BasketDialogStyles();
   const onButtonClick = () => {
     onClose();
     deleteItems();
@@ -21,7 +22,7 @@ export const BascetDialog = ({ open, onClose }) => {
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <div className="orders">
+      <div className={styles.orders}>
         <h1>Your List</h1>
         {items.map((item) => {
           return (

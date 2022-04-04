@@ -1,11 +1,13 @@
 import { Grid } from "@mui/material";
-import ProductCard, { productType } from "../ProductCard";
-import "./styles.css";
-import PropTypes, { object } from "prop-types";
+import { ProductCard, productType } from "../ProductCard";
+
+import PropTypes from "prop-types";
+import { ProductListStyles } from "./styles";
 
 export const ProductsList = ({ products, setProducts }) => {
+  const styles = ProductListStyles();
   return (
-    <Grid container className="list">
+    <Grid container className={styles.list}>
       {products.map((product) => {
         return (
           <Grid item xs={11} sm={5} md={3}>

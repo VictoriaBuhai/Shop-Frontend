@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../api/api";
 import { OrderFunction } from "../../App";
-import "./styles.css";
+import { ProductPageStyles } from "./styles";
 
 export const ProductPage = () => {
   const params = useParams();
@@ -11,6 +11,7 @@ export const ProductPage = () => {
   const { addButton } = useContext(OrderFunction);
 
   const [product, setProduct] = useState({});
+  const styles = ProductPageStyles();
 
   useEffect(() => {
     (async () => {
@@ -21,9 +22,9 @@ export const ProductPage = () => {
 
   return (
     <>
-      <div className="info">
+      <div className={styles.info}>
         <img src={product.imagePath} alt="img" />
-        <div className="text">
+        <div>
           <h1>{product.name}</h1>
           <h2>Price: {product.price}$</h2>
           <h3>Information</h3>
