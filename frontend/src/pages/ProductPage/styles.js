@@ -1,4 +1,7 @@
+import { createTheme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+
+export const theme = createTheme();
 
 export const ProductPageStyles = makeStyles(() => ({
   info: {
@@ -8,5 +11,8 @@ export const ProductPageStyles = makeStyles(() => ({
     justifyContent: "center",
     gap: "30px",
     marginBottom: "30px",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+    },
   },
 }));

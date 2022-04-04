@@ -5,14 +5,18 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { PrismicProvider } from "@prismicio/react";
 import { client } from "./prismic";
+import { ThemeProvider } from "@mui/styles";
+import { theme } from "./pages/ProductPage/styles";
 
 ReactDOM.render(
   <React.StrictMode>
-    <PrismicProvider client={client}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </PrismicProvider>
+    <ThemeProvider theme={theme}>
+      <PrismicProvider client={client}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PrismicProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
