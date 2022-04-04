@@ -9,6 +9,7 @@ import {
 import { useContext } from "react";
 import { OrderFunction } from "../../App";
 import "./styles.css";
+import PropTypes from "prop-types";
 
 export const BascetDialog = ({ open, onClose }) => {
   const { items, deleteItems } = useContext(OrderFunction);
@@ -39,4 +40,9 @@ export const BascetDialog = ({ open, onClose }) => {
       </div>
     </Dialog>
   );
+};
+
+BascetDialog.propTypes = {
+  open: PropTypes.bool,
+  onClose: PropTypes.func,
 };

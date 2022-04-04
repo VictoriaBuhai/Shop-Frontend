@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getFavorites } from "../../api/api";
 import { ProductsList } from "../../components/ProductsList";
 import PropTypes from "prop-types";
+import { productType } from "../../components/ProductCard";
 
 export const Favorites = ({ products }) => {
   const [favorites, setFavorites] = useState([]);
@@ -22,5 +23,5 @@ export const Favorites = ({ products }) => {
 };
 
 Favorites.propTypes = {
-  products: PropTypes.array,
+  products: PropTypes.arrayOf(productType),
 };

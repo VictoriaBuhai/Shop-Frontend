@@ -77,7 +77,15 @@ export default function ProductCard({ product, setProducts }) {
   );
 }
 
+export const productType = PropTypes.shape({
+  name: PropTypes.string,
+  information: PropTypes.string,
+  price: PropTypes.number,
+  imgPath: PropTypes.string,
+  slug: PropTypes.string,
+});
+
 ProductCard.propTypes = {
-  product: PropTypes.object,
+  product: productType,
   setProducts: PropTypes.func,
 };
