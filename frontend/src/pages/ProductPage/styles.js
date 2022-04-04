@@ -1,9 +1,6 @@
-import { createTheme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-export const theme = createTheme();
-
-export const ProductPageStyles = makeStyles(() => ({
+export const ProductPageStyles = makeStyles((theme) => ({
   info: {
     maxWidth: "1280px",
     width: "100%",

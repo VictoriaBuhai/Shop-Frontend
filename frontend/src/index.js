@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { PrismicProvider } from "@prismicio/react";
 import { client } from "./prismic";
 import { ThemeProvider } from "@mui/styles";
-import { theme } from "./pages/ProductPage/styles";
+import { theme } from "./theme.js";
 
 ReactDOM.render(
   <React.StrictMode>
