@@ -15,7 +15,7 @@ export const Favorites = ({ products }) => {
   return (
     <>
       <h1 className="title">Favorites</h1>
-      <ProductsList products={favorites} />;
+      <ProductsList products={favorites} />
     </>
   );
 };
