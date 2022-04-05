@@ -11,6 +11,7 @@ import { ProductPage } from "./pages/ProductPage";
 import { Bascet } from "./components/Bascet";
 
 import { Favorites } from "./pages/Favorites";
+import { AboutPage } from "./pages/AboutPage/about";
 
 export const OrderFunction = createContext();
 
@@ -60,6 +61,7 @@ const App = () => {
           <Route path="/products" element={<Home items={items} />} />
           <Route path="/products/:slug/:id" element={<ProductPage />} />
           <Route path="/products/favorites" element={<Favorites />} />
+          <Route path="/about" element={<AboutPage />} />
 
           {/* <Route path="*" element={<Navigate to="/products" replace />} /> */}
         </Routes>

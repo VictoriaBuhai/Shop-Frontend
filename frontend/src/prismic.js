@@ -14,10 +14,4 @@ export const client = prismic.createClient(endpoint, {
   //
   // If you are not using a router in your project, you can change this
   // to an empty array or remove the option entirely.
-  routes: [
-    {
-      type: "page",
-      path: "/products/:uid",
-    },
-  ],
 });
