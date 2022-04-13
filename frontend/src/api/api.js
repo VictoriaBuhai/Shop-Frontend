@@ -17,7 +17,7 @@ export const getFavorites = () => {
 };
 
 export const editProduct = (id, body) => {
-  axios.put(`/products/${id}`, body);
+  return axios.put(`/products/${id}`, body);
 };
 // export const getProducts = () => {
 //   return fetch(`${URL}/products`).then((response) => response.json());
