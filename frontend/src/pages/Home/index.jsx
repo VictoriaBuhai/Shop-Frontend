@@ -35,6 +35,7 @@ export const Home = () => {
   useEffect(() => {
     (async () => {
       const apiProducts = await getProducts();
+      console.log(apiProducts);
       setProducts(apiProducts);
     })();
   }, []);
